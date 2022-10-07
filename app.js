@@ -1,7 +1,40 @@
 var currentDay = moment();
-
+//displays current day in trhe format I choose
 currentDay.format("dddd, MMMM Do YYYY");
 $("#currentDay").text(currentDay);
+
+
+
+$(document).ready(function () {
+    $(".saveBtn").on("click", function () {
+        var figureitem = {
+            savedText: $(this).siblings("#typecontent").val(),
+            savedTime: $(this).parent().attr("id")
+        };
+
+        // localStorage.setItem(figureitem.savedTime, figureitem.savedText);
+        localStorage.setItem("figureitem", JSON.stringify(figureitem));
+        settext();
+    })
+})
+function settext() {
+    var lastEntry = JSON.parse(localStorage.getItem("figureitem"));
+    var id = $(".time").attr("id");
+    if (id == lastEntry.savedTime) {
+        $("#textcontent").text(lastEntry.savedText);
+    }
+}
+// $("#8 #textcontent").val(localStorage.getItem("8"));
+// $("#9 #textcontent").val(localStorage.getItem("9"));
+// $("#10 #textcontent").val(localStorage.getItem("10"));
+// $("#11 #textcontent").val(localStorage.getItem("11"));
+// $("#12 #textcontent").val(localStorage.getItem("12"));
+// $("#13 #textcontent").val(localStorage.getItem("13"));
+// $("#14 #textcontent").val(localStorage.getItem("14"));
+// $("#15 #textcontent").val(localStorage.getItem("15"));
+// $("#16 #textcontent").val(localStorage.getItem("16"));
+// $("#17 #textcontent").val(localStorage.getItem("17"));
+
 
 function backgroundcolor() {
     var currentcolor = moment().hour();
@@ -33,7 +66,6 @@ function backgroundcolor() {
     )
 }
 backgroundcolor();
-
 // $(document).ready(function () {
 
 //     // Static
