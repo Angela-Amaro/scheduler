@@ -3,6 +3,37 @@ var currentDay = moment();
 currentDay.format("dddd, MMMM Do YYYY");
 $("#currentDay").text(currentDay);
 
+function backgroundcolor() {
+    var currentcolor = moment().hour();
+    console.log(currentcolor);
+    $(".time").each(function () {
+        //compares time to id of time in html by making it an integer
+        var idTime = parseInt($(this).attr("id"));
+        console.log(idTime);
+        if (idTime === currentcolor) {
+
+            $(this).removeClass("future");
+            $(this).removeClass("past");
+            $(this).addClass("present");
+        }
+        else if (idTime < currentcolor) {
+
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+            $(this).addClass("past");
+        }
+        else {
+
+            $(this).removeClass("present");
+            $(this).removeClass("past");
+            $(this).addClass("future");
+
+        }
+    }
+    )
+}
+backgroundcolor();
+
 // $(document).ready(function () {
 
 //     // Static
