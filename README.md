@@ -9,7 +9,7 @@ Hello and welcome to my work day scheduler. Here you can schedule your typical w
 [Active website link](https://angela-amaro.github.io/scheduler/)
 
 
-![Website](./assets/Screenshotschedduler.png)
+![Website](./assets/Screenshotscheduler.png)
 
 
 
