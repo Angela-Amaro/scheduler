@@ -29,7 +29,7 @@ THEN I can enter an event
 WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
-THEN  t
+THEN  the saved item persist
 ```
 
 The following animation demonstrates the application functionality:

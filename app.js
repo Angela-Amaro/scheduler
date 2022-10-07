@@ -1,19 +1,11 @@
-var currentDay = moment();
-//displays current day in trhe format I choose
-currentDay.format("dddd, MMMM Do YYYY");
-$("#currentDay").text(currentDay);
-
-
-
 $(document).ready(function () {
     $(".saveBtn").on("click", function () {
-        var figureitem = {
-            savedText: $(this).siblings("#typecontent").val(),
-            savedTime: $(this).parent().attr("id")
-        };
+        var figureitem = $(this).siblings("#typecontent").val(),
 
+
+            savedTime = $(this).parent().attr("id")
         // localStorage.setItem(figureitem.savedTime, figureitem.savedText);
-        localStorage.setItem("figureitem", JSON.stringify(figureitem));
+        localStorage.setItem(savedTime, figureitem);
         settext();
     })
 })
@@ -24,6 +16,18 @@ function settext() {
         $("#textcontent").text(lastEntry.savedText);
     }
 }
+
+function savetoWebsite() {
+    for (i = 8; i < 18; i++) {
+        $("#" + i).children().eq(1).text(localStorage.getItem(i));
+    }
+}
+savetoWebsite();
+var currentDay = moment();
+//displays current day in trhe format I choose
+currentDay.format("dddd, MMMM Do YYYY");
+$("#currentDay").text(currentDay);
+
 // $("#8 #textcontent").val(localStorage.getItem("8"));
 // $("#9 #textcontent").val(localStorage.getItem("9"));
 // $("#10 #textcontent").val(localStorage.getItem("10"));
